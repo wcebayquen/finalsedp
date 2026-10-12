@@ -6,6 +6,14 @@ function App() {
   const myclick = (value) => {
     setResult(result + value);
   }
+
+  const calc = () => {
+    try {
+      setResult(eval(result));
+    } catch (error) {
+      setResult("Error");
+    }
+  }
  return (
     <div className="App">
       <header className="App-header">
@@ -34,7 +42,7 @@ function App() {
               <button key={13} onClick={() => myclick('/')} className = "button">/</button>
               <button key={14} onClick={() => myclick('0')} className = "button">0</button>
               <button key={15} onClick={() => myclick('+')} className = "button">+</button>
-              <button key={16} onClick={() => setResult(eval(result))} className = "button">=</button>
+              <button key={16} onClick={calc} className = "button">=</button>
             </tr>
           </thead>
         </table>
