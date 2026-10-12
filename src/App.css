@@ -41,8 +41,9 @@
 }
 
 .bar{
+  font-family: 'Minecraft', sans-serif;
   color: rgb(12, 12, 12);
-  background-color: #ffffff;
+  background-color: #e4dfdf;
   border-color: black;
   border-width: 2px;
   border-style: solid;
@@ -50,6 +51,8 @@
   padding: 10px;
   margin: 2px;
   width: 200px;
+  height: 50px;
+  display: flex;
 }
 
 .button {
@@ -57,7 +60,7 @@
   font-size: 40px;
   background-color: #947f7f;
   color: white;
-  border: 2px solid #645454;
+
   border-color: black;
   padding: 10px;
   font-size: 16px;

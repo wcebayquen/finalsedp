@@ -17,7 +17,9 @@ function App() {
  return (
     <div className="App">
       <header className="App-header">
-        <h1>{result}</h1>
+      <div className="bar">
+        <p>{result}</p>
+        </div>
         <table className="table">
           <thead>
             <tr>
