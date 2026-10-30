@@ -1,31 +1,32 @@
 import './App.css';
-import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
+import Nav from './Nav';
+import Home from './App1';
+import Calculator from './App2';
+import Login from './App3';
 
-function App() {
-  const[username, setUsername] = useState("");
-  const[password, setPassword] = useState("");
-  const actualusername = "admin";
-  const actualpassword = "password";
-  const loginClick = () => {
-    if(username !== actualusername || password !== actualpassword) {
-      console.log(username, password);
-    } else {
-    alert("Login Successful");
-    }
-  }
-
- return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Login Screen</h1>
-        <div className="login-container">
-          <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} className="input" />
-          <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className="input" />
-          <button onClick={loginClick} className="login-button">Login</button>
-        </div>
-      </header>
-    </div>
+const NavbarLayout = () => {
+  return (
+    <>
+      <Nav />
+      <Outlet />
+    </>
   );
 }
+
+function App() {
+  return(
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route element={<NavbarLayout />}>
+          <Route path="/home" element={<Home />} />
+          <Route path="/calculator" element={<Calculator />} />
+          <Route path="/logout" element={<Login />} />
+        </Route>
+      </Routes>
+    </Router>
+  );
+} 
 
 export default App;
